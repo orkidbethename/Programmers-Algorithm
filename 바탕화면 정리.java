@@ -30,4 +30,3 @@ class Solution {
         return answer;
     }
 }
-
