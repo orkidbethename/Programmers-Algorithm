@@ -15,6 +15,3 @@ class Solution {
         return answer;
     }
 }
-
-//시간 단축 수정(stack)
- 
