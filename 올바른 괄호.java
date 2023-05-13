@@ -32,3 +32,25 @@ class Solution {
         return answer;
     }
 }
+
+//효율성 테스트 수정
+import java.util.*;
+
+class Solution {
+    boolean solution(String s) {
+        LinkedList<Character> list = new LinkedList<>();
+
+        for(char a:s.toCharArray()){
+            if(a == '('){
+                list.add(a);
+            }else{
+                if(list.isEmpty() == true){
+                    return false;
+                }
+                list.pollLast();
+            }
+        }
+
+        return list.isEmpty();
+    }
+}
