@@ -39,3 +39,32 @@ class Solution {
         return answer;
     }
 }
+
+//효율성 개선 -> PriortyQueue 사용
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.stream.Collectors;
+
+class Solution {
+    public int solution(int[] scoville, int K) {
+        int answer = 0;
+        PriorityQueue<Integer> pq = Arrays.stream(scoville).boxed().collect(Collectors.toCollection(PriorityQueue::new));
+        
+        int min = pq.peek();
+        
+        while(K>min && pq.size()>1){
+            answer++;
+            int a = pq.poll();
+            int b = pq.poll();
+            int tmp = a+(b*2);
+            
+            pq.add(tmp);
+            min=pq.peek();
+        }
+        
+        if(K>min){
+            return -1;
+        }
+        return answer;
+    }
+}
